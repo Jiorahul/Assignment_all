@@ -1,0 +1,158 @@
+* array store data and append more data show data through index value like key and value
+
+declare -A student=([name]="rahul" [rollNo]=123 [stuId]=456)
+
+echo ${student[@]}
+
+#echo ${!student[@]}
+#for t in ${!student[@]}
+#do
+#echo "$t ${student[$t]}"
+#done
+:
+
+#if [ -v student[name] ]
+#then
+#       echo"present"
+#fi
+
+student+=([mobno]=454345765545 [emailid]=krsuman2015@gmail.com)
+#echo ${student[@]}
+ student+=([name]="samir")
+echo ${student[@]}
+
+*provide input from user and makeing calcultor 
+
+read -p "enter the first number:" n1
+
+echo "choose the opertion:"
+echo "1. add"
+echo "2. subtract"
+echo "3.multiply"
+echo "4. divide"
+read opr
+
+read -p "enter the second number:" n2
+if [ $opr = "1" ]
+then
+        echo $((n1+n2))
+elif [ $opr = "2" ]
+then
+        echo $((n1-n2))
+elif [ $opr = "3" ]
+then
+        echo $((n1*n2))
+elif [ $opr = "4" ]
+then
+        echo $((n1/n2))
+fi
+exit 0
+
+* print different - different output many times we are getting only 3 digit output
+
+maxcount=10
+count=1
+while [ $count -le $maxcount ]
+do
+number=$(( $RANDOM % 100 * 10 ))
+let "count += 1"
+done
+echo "${number[@]}"
+
+*we are providing ten Random number in sequence but we coud't store in array
+
+declare -A student=()
+echo ${student[@]}
+RANDOM=$$
+for i in `seq 10`
+do
+echo $RANDOM
+student+=($i)
+echo ${student[i]}
+done
+echo ${student[@]}
+
+*fiind palindrome
+
+echo "enter the  number"
+read n
+sd=0
+
+reverse=""
+on=$n
+while [ $n -gt 0 ]
+do
+sd=$(( $n % 10 ))
+n=$(( $n / 10 ))
+reverse=$( echo ${reverse}${sd} )
+done
+
+if [ $on -eq $reverse ];
+then
+echo "number is palindrome"
+else
+echo "number is not palindrome"
+fi
+
+*harmonic number
+read -p "Enter a number"  n;
+for (( i=1; i<=$n; i++ ))
+do
+   
+ for (( cnt=1; cnt<=$i; cnt++ ))
+ do
+	re=`expr 1/$i`;
+ done
+
+echo "$re+"
+
+done 
+echo "the given number can be written as harmonic number Hn -> $re";
+
+* factorial number
+
+read -p "enter a number:" num
+fact=1
+for((i=2;i<=num;i++))
+do
+fact=$((fact*i))
+done
+echo $fact
+
+* print table 2^n
+
+read -p "enter the number:" n
+for table in {2..100..2}
+do
+echo $table
+if [ $table == 20 ];
+then
+        break
+fi
+done
+
+
+*unit conversion
+
+read -p "enter the num :" num
+case $num in
+1)
+feettoinch=`echo $num | awk '{print $0*12}'`
+echo $feettoinch inch
+;;
+2)
+feettometer=`echo $num | awk '{print $0/3.281}'`
+echo $feettometer meter
+;;
+3)
+inchtofeet=`echo $num | awk '{print $0*12}'`
+echo $inchtofeet feet
+;;
+4)
+metertofeet=`echo $num | awk '{print $0*3.281}'`
+echo $metertofeet feet
+;;
+*)
+echo "other"
+;;
+esac

@@ -1,0 +1,216 @@
+*echo "Random number between 1 and 10: $random_number"
+
+RANDOM=$$
+        echo $RANDOM
+RANDOM=$$
+for i in `seq 5`
+do
+        echo $RANDOM
+done
+
+
+
+*upeer and lower digit find.
+
+Y=$1
+div=$((Y+1))
+RANDOM=$$
+R=$(($RANDOM%$div))
+num1=$(( ( $RANDOM%6 ) + 1 ));
+echo $R
+
+
+*add random no to get dice between 1 to 6
+
+cat dice.sh
+!/bin/bash
+function roll_dice {
+min=1
+max=6
+number=$(expr $min + $RANDOM $max)
+
+*print user name with predefind massege HELLo
+
+read -p "enter name: " name
+echo " your name is Hello $name"
+
+*print predefined massege with fisrt and last name
+
+for (( i=1; i<5; i++ ))
+do
+echo "$ -- hello world"
+read -p "enter the last name :" Lname
+read -p "enter the first name :" Fname
+
+echo "$Lname $Fname"
+done
+
+*print one to fifth
+
+for (( i=1; i<=50; i++ ))
+do
+echo "$i"
+done
+
+*print condition using while 
+
+i=1
+while [ $i -le 5 ]
+do
+echo "hello word"
+((i++))
+done
+
+*print add,multi and devi
+
+read -p "plz enter the number :" num1
+read -p "plz enter the number :" num2
+ result=$((num1-num2))
+echo $result
+result=$((num1*num2))
+echo $result
+result=$((num1%num2))
+echo $result
+
+*print voting if we are 18+
+
+echo "enter ypur age :"
+read age
+
+if [ $age -ge 18 ]
+then
+echo "you are eligible for voting"
+else
+echo "sorry you are not eligible"
+fi
+
+*check no are same or different
+
+m=1
+n=1
+if [ $n -eq $m ]
+then
+echo "both no are same"
+else
+echo "both no are different"
+fi
+
+*print the any days if user provide input
+
+echo "enter a number"
+read n
+case $n in
+0) echo "sunday" ;;
+1) echo "monday" ;;
+2) echo "tuesday" ;;
+3) echo "wednesday" ;;
+4) echo "thursday" ;;
+5) echo "firday" ;;
+6) echo "saturday" ;;
+*) echo "enter the value between 1 to 7" ;;
+esac
+
+*provide massege from system if user give valid data month and year
+
+echo "plz enter the month"
+read month
+echo "plz enter the year"
+read year
+if [ "$month" = "1-12" ]
+then
+        cal "$month" "$year"
+        sleep 2
+        echo "thank you good bye.."
+else
+        echo "sorry"
+        sleep 2
+fi
+
+** add two no and string print
+
+function greet(){
+echo "hello world $1 $2"
+}
+greet "rahul" "vishal"
+greet "dipti" "sum"
+
+*function sum(){
+        result=$(($1+$2))
+echo $result
+}
+sum 20 10
+
+*reverse string print the data
+
+read  -p "HOME name:"
+echo "your first name : "
+read Mname
+echo "your last name : "
+read lname
+echo "hello $lname $Mname !"
+
+* print data not div /2
+
+#i=1
+#while [ $i -le 50 ]
+#do
+#echo $i
+#i=$(($i+1))
+#done
+
+for (( i=1; i<=50; i++))
+do
+if [ $(($i%2)) -ne  0 ]
+then
+echo $i
+fi
+done
+
+* find which year is leap year o not
+
+echo -n " plz enter the year gays:"
+read y
+if [ $((y % 4 )) -eq 0 ] && [ $((y % 400)) -ne 0 ] || [ $((y % 100)) -eq 0 ] ;
+then
+        echo "$y is leap year"
+else
+        echo "$y is not a leap year"
+fi
+
+*array store the data and store more data
+
+declare -a student=( "rahul" "pal" "kumar" "vishal" "dipti"  )
+name=${#student[@]}
+for (( i=0; i<$name; i++ ))
+ do
+        echo ${student[i]}
+student+=("sharma" "vishal" "rahul")
+unset student[0]
+echo ${student[@]}
+done
+
+* display data 1,10,100,&1000
+
+read -p "enter the number:" num
+case $num in
+1) echo "one" 1 ;;
+2) echo "ten" 10 ;;
+3) echo "hundered" 100 ;;
+4) echo "thousend" 100;;
+*) echo "other" ;;
+esac
+
+* converting in to feet
+
+echo 1ft="12 inches"
+echo 1in="0.083"
+
+conversion=`echo $((42/12)) | awk '{print 42/12}'`
+echo $conversion feet
+
+* converting feet to meters
+
+echo 1ft="0.3048 in meters"
+conversion=$((60*40))
+plot= echo $conversion | awk '{print $1*0.3048}'
+echo $plot in meters
